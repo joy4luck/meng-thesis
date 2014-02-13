@@ -1,4 +1,5 @@
 \chapter{System Overview}
+  \section{Broad Design Goals}
   The system designed to address a subset of these concerns is essentially a mobile application.
   I designed and implemented,
   from the ground up, an application called InMind.
@@ -47,9 +48,11 @@
     The application was written for Android, targeting API 18,
     but supports down to API 13.
 
-    I chose to develop in Android primarily because the Affective Computing Group
+    I chose to develop in Android partially because the Affective Computing Group
     has a recent tradition for doing so.
-    My primary reason for choosing Google Android over Apple iOS include
+    This is for reasons related variously to the freedoms that Android developers have,
+    and the availability of third party software toolboxes for Android.
+    However, my primary reason for choosing Google Android over Apple iOS is
     the prevalence of Android devices.
     Android has been dominating the mobile market since 2012,
     and if InMind were to be released to the public,
@@ -87,6 +90,94 @@
     and a 2012 Nexus 7, with a 7" screen.
     Design objectives for all layouts was to be attractive on the cell-phone-sized screens,
     and reasonably functional on larger tablet screens.
+
+    \subsection{Application Structure}
+    The interactive part of the application is best described by a description of the views
+    and the actions available to the user on them.
+      \subsubsection{Home Page}
+      The home page shows the topics that the user has access to.
+      See \cite{} for a series of screenshots of the home page design.
+
+      Since the iconography of the topics is very important,
+      the main page gathers the icons of the topics in a scrolling view.
+
+      As the number of topics increases,
+      it becomes increasingly important to have a way to organize the topics.
+      I chose to implement this in the form of filters.
+      The filters are available in a dropdown menu in the action bar at the top of the screen.
+      (The second screenshot in \cite{})
+      There are three default filters that always filter for topics that meet certain criteria.
+      The first two are "Mine" and "Shared with Me"
+      which filter for, respectively, topics the user has created and those he did not.
+      The last is "Archived" which shows only the archived topics.
+      Archived topics do not appear in any other filtered view.
+
+      Finally, the user can create their own filters.
+      The filter creation page is shown in \cite{}.
+      The freedom to create their own filters allows users to organize
+      their topics however they like.
+      Some ideas include bringing out topics that are particularly important,
+      particularly serious or un-serious, created by specific people,
+      or even filtering by higher level themes.
+
+      Below the scrolling view of topics that displays the topics
+      that match the filter, there is a small box that displays the prompts of the day.
+
+      The prompts change every day, and are displayed in discreet plain text.
+
+      Since the topics and their corresponding messages may be private in nature,
+      possibly even more private than the other material storied on the device,
+      there is an option of logging out.
+
+      The log out option is available under options.
+      When a user logs out, all the application data stored on the device is wiped.
+      This makes it impossible for anyone to get access to that user's
+      messages or topics without authenticatin as that user.
+      Conversely, on successful login, all the data is re-downloaded onto the device.
+
+      \subsubsection{Creation View}
+      When a user want to initiate the topic,
+      they can click the add button on the action bar at the top of the home page.
+      This opens up the creation view, which is shown in \cite{}.
+      On this page, the user titles the topic,
+      chooses an icon, and chooses who to share the topic with.
+
+      The choice of the icon is very important in setting the theme of the topic.
+      First, let me explain the structure of InMind status icons.
+      The icons are of three kinds: plants, birds, and hampsters.
+      All three icons are of a similar structure, and have two parts.
+      \begin{enumerate}
+      \item A background color, to make the icon distinct from others like it.
+      \item A "character" icon, whose status changes between 5 to 8 different levels.
+      \end{enumerate}
+      As previously mentioned, the icon is very important in setting
+      the theme for the topic, since its state represents the status of the topic
+      in reality.
+
+      The design of the icons is very important in influencing how
+      the users interact with the topics.
+      There are three kinds of icons, and they represent three types of statuses.
+      \begin{enumerate}
+      \item \textbf{Plants} grow in a colored pot. They are a good general purpose icon as they are neutral,
+      not personable, and a familiar icon in many other settings,
+      since they are associated with positive feelings of growth.
+      \item \textbf{Birds} are positioned relative to a colored water level.
+      They indicate affective wellness or degree of success in the face of difficulty.
+      \item \textbf{Hampsters} run on a colored exercise wheel.
+      Their speed can represent arousal,
+      or associated energy levels for the topic.
+      \end{enumerate}
+      The progression of icons is completely detailed in the appendix.
+
+      The symbology was unclear to early beta testers,
+      and choosing an appropriate icon for a topic can be difficult.
+      The topic creation page helps by providing
+      a short blurb to describe how to use each icon type.
+
+      \subsubsection{Topic View}
+      \subsubsection{Prompts and Notifications}
+
+    \subsection{User Model}
 
     \subsection{Security}
 
