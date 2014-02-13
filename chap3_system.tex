@@ -1,13 +1,58 @@
 \chapter{System Overview}
-  \section{Broad Design Goals}
-  The system designed to address a subset of these concerns is essentially a mobile application.
   I designed and implemented,
-  from the ground up, an application called InMind.
+  from the ground up, a mobile application called InMind.
   InMind would enable the sort of slow,
   targeted communication that had been useful to bereaved individuals in forums,
   but connect individuals with people that they choose.
 
-  Broadly, the goal of the application was to enable users to create spaces
+  \section{Design Challenges}
+    \subsection{Lightening the Burden of Communication}
+    Everything about designing for mobile is to make tasks "easier" for the user.
+    In this case, we have the even more daunting task of making
+    the difficult task of communicating about tough topics easier.
+
+    We broadly called this the challenge of "lightening the burden of communication."
+    The burden of communication can be split roughly into two types:
+    logistical and psychological.
+    Technology provides the convenience of text messaging,
+    group messaging, etc, which helps to address the logistical burden,
+    but the psychological burden is mostly left to the individual.
+
+    The psychological burden can take many forms.
+    Two that we hoped to address were:
+    \begin{enumerate}
+    \item The difficulty of initializing a difficult topic.
+    \item The desire to not burden the receiver.
+    \end{enumerate}
+
+    \subsection{Technology as an Excuse}
+    More ambitiously, we also want to aid in the usage of technology as an excuse.
+    This mechanism involves individuals in a technological space being prompted
+    to interact by the technology.
+    
+    There is a degree of trust in technology, since it acts often as an impartial third party,
+    and we can take advantage of that to encourage use of our technology as an excuse for action.
+    These actions can be as varied as 
+    general communication,
+    assistance, or even intervention.
+
+    \subsection{Beautiful Mobile Experience}
+    The more I developed for the mobile device,
+    the more I realized that mobile applications are held to a high standard for beauty.
+
+    Although web designers can get away with sparse implementations on web browser based
+    interactions,
+    this does not apply equally well to mobile designers.
+    Mobile applications are subject to a "survival of the fittest" in the application
+    marketplaces, where the poorly designed applications die out from low usership.
+    Thus, the applications that most users are used to are beautiful.
+    From the icon design (see \cite{} for the evolution of the InMind logo)
+    to layout design (see \cite{} for the evolution of the InMind look and feel),
+    I designed InMind to live up to that high standard.
+
+  \section{Interaction Design}
+  Broadly, the goal of the application was to create support groups and 
+  enable users within that group to create spaces
   with themed topics, that had a status of some nature.
   This status could represent the user's well being, the well being of someone else
   that the user cares about, the progress of a project, the energy level of a group,
@@ -42,7 +87,29 @@
   Although the thoughts may be complex, the messages composed on a mobile device
   tend to be very short.
 
-  \section{Application End}
+    \subsection{User Model}
+      It is interesting to note that the user interactions are likely asymmetric
+      on several fronts.
+      On each individual topic, there is a significant difference between the owner
+      and the users that were invited to share the topic.
+
+      The owner is able to control the state of the topic,
+      and thus has the power to control the theme of the conversation.
+      This becomes an outlet of expression for the owner,
+      as he can shape the icon to represent the status of the topic,
+      and thus discuss the topic knowing that the group understands the status as well.
+
+      Another asymmetry is that it is very likely that most groups will
+      have asymmetric participation.
+      Some members will be eager to begin topics, initiate discussions,
+      and others less so.
+      This is anticipated in the design,
+      as people have differing needs for communication,
+      but the application will encourage ownership of at least a topic or two,
+      otherwise the "Mine" filter will remain very empty.
+
+
+  \section{Android Application}
 
     \subsection{Platform Choice}
     The application was written for Android, targeting API 18,
@@ -205,27 +272,6 @@
       After 24 hours of inactivity, a notification appears on the mobile device,
       reminding the user to check InMind for the day's prompt.
 
-    \subsection{User Model}
-      It is interesting to note that the user interactions are likely asymmetric
-      on several fronts.
-      On each individual topic, there is a significant difference between the owner
-      and the users that were invited to share the topic.
-
-      The owner is able to control the state of the topic,
-      and thus has the power to control the theme of the conversation.
-      This becomes an outlet of expression for the owner,
-      as he can shape the icon to represent the status of the topic,
-      and thus discuss the topic knowing that the group understands the status as well.
-
-      Another asymmetry is that it is very likely that most groups will
-      have asymmetric participation.
-      Some members will be eager to begin topics, initiate discussions,
-      and others less so.
-      This is anticipated in the design,
-      as people have differing needs for communication,
-      but the application will encourage ownership of at least a topic or two,
-      otherwise the "Mine" filter will remain very empty.
-
     \subsection{Security}
       Due to the sensitive nature of the application,
       many measures have been taken for security purposes.
@@ -286,10 +332,3 @@
       \item Each group shares an initialization vector.
       \item Each topic has a salt and an autogenerated passphrase.
       \end{enumerate}
-
-  \section{Design Challenges}
-    \subsection{Lightening the burden of communication}
-
-    \subsection{Technology as an excuse}
-
-
