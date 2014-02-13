@@ -308,6 +308,9 @@
       MongoDB gave us flexibility for designing how we wanted data to be stored,
       and we took advantage of MongoDB\'s simple backup mechanism for data integrity.
 
+      The server was hosted on an MIT Media Lab server.
+
+    \subsection{RESTful API}
       I used the Express server to support a RESTful API.
       The InMind Android application,
       which I'll often refer to as "the client" in this section,
@@ -317,7 +320,9 @@
       For example, a fresh login is a series of GET calls with a "last updated" timestamp
       of 0, and later refreshes are the same calls, with a more recent time stamp.
 
-      To keep user data secure, the server was hosted on an MIT Media Lab server.
+      The RESTful API supported the creation and modification of the datatypes
+      stored in the database.
+      Please see the table in \cite{} for a summary of all the API calls.
 
     \subsection{Database Schema}
       The InMind server is supported by a MongoDB NoSQL database system.
@@ -329,7 +334,7 @@
 
       Although MongoDB technically doesn\'t use a schema,
       it is still useful to describe the structure of the data in terms of its schema.
-      See \table{} for a listing of the collections and data stored by
+      See \cite{} for a listing of the collections and data stored by
       the InMind server.
 
       Broadly, the server has 4 collections:
@@ -352,21 +357,44 @@
         since both encryption and decryption happens on the app side.
       \end{enumerate}
 
-    \subsection{HTTP calls}
-      The RESTful API supported the creation and modification of the datatypes
-      stored in the database.
-
-
-
     \subsection{Administration}
+      Administrative tasks were simple enough to be handled by scripting
+      and direct monitoring of the database.
+      MongoDB provides an efficient way for directly viewing
+      and manipulating the entries in the database.
+
+      The only consistently necessary administrative tasks were lead user creation
+      and server restart.
+
+      I decided to write a simple webform to allow users to register
+      into an existing group,
+      however, I wanted to be aware of when lead users and groups were created.
+      Thus, I left lead user creation as a manual task that I would have to
+      perform myself.
+
+      For these tasks, which involve modifying user and group membership,
+      I just wrote javascript scripts I could run to manipulate the database
+      as necessary.
+
+      To restart the server,
+      whether to push new server changes or recover from server failure,
+      I wrote a bash script.
 
     \subsection{Security}
       \subsubsection{Authentication}
+        For authentication, I chose to user regular HTTP authentication over HTTPS.
+        This is a common implementation, since the SSL protocol of HTTPS
+        protects against man-in-the-middle
+        eavesdropping attacks that could steal the authentication credentials.
+        To support this, all of the InMind server is served over HTTPS.
+
+        With this authentication scheme,
+        every single request to the server has to be authenticated.
 
       \subsubsection{Encryption}
         For added protection for our users, all messages were encrypted.
         This encryption was on several levels, primarily using the AES standard.
-        %TODO
+        %TODO Describe AES!!!!
 
         \begin{enumerate}
         \item \textbf{The IV} is shared within the group.
@@ -374,7 +402,7 @@
         \item \textbf{The passphrase} is stored with the topic as well.
         \end{enumerate}
 
-      \subsection{Other Measures}
+      \subsection{Other Precautions}
       During the study, while the server was running, it was password protected,
       as was the database in which the data was stored.
 
@@ -382,4 +410,3 @@
       the database remembers only an alphanumeric user id.
       All "lead" participants had to be entered into the database manually,
       and later participants sign up anonymously with a user id and password.
-
