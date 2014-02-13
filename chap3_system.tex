@@ -1,7 +1,7 @@
 \chapter{System Overview}
   I designed and implemented,
   from the ground up, a mobile application called InMind.
-  InMind would enable the sort of slow,
+  InMind would enable a kind of slow,
   targeted communication that had been useful to bereaved individuals in forums,
   but connect individuals with people that they choose.
 
@@ -88,8 +88,8 @@
   tend to be very short.
 
     \subsection{User Model}
-      It is interesting to note that the user interactions are likely asymmetric
-      on several fronts.
+      It is interesting to note that the user interactions within a group
+      are likely asymmetric on several fronts.
       On each individual topic, there is a significant difference between the owner
       and the users that were invited to share the topic.
 
@@ -107,7 +107,6 @@
       as people have differing needs for communication,
       but the application will encourage ownership of at least a topic or two,
       otherwise the "Mine" filter will remain very empty.
-
 
   \section{Android Application}
 
@@ -300,35 +299,87 @@
       The messages are only decrypted on display on the topic view.
 
   \section{Server}
-    \subsection{Design}
-      The server for InMind was written using Node.js.
-      The choice of Node.js offered many benefits, including asynchronous responses,
+    \subsection{Platform and Hardware}
+      The server for InMind was written using Node.js, run with an Express server.
+      The choice of Express and Node.js over alternatives such as Django or Ruby
+      offered many benefits, including asynchronous responses,
       lightweight maintenance, and easy integration with MongoDB for data retention.
 
       MongoDB gave us flexibility for designing how we wanted data to be stored,
       and we took advantage of MongoDB\'s simple backup mechanism for data integrity.
 
+      I used the Express server to support a RESTful API.
+      The InMind Android application,
+      which I'll often refer to as "the client" in this section,
+      only ever performs GET and POST calls to the server to accomplish operations.
+      The GET and POST calls are all that are needed to
+      retreive, add, and modify data stored on the server.
+      For example, a fresh login is a series of GET calls with a "last updated" timestamp
+      of 0, and later refreshes are the same calls, with a more recent time stamp.
+
+      To keep user data secure, the server was hosted on an MIT Media Lab server.
+
+    \subsection{Database Schema}
+      The InMind server is supported by a MongoDB NoSQL database system.
+      Database records were designed both to support application interactions
+      and to log the data that I was interested in investigating.
       The data saved on the server included records of all the app interactions.
       For each of the actions performed by the users,
       we logged the timestamp of the operation as well as the recipients.
 
-      To keep user data secure, the server was hosted on an MIT Media Lab server.
-      The machine... TBD
+      Although MongoDB technically doesn\'t use a schema,
+      it is still useful to describe the structure of the data in terms of its schema.
+      See \table{} for a listing of the collections and data stored by
+      the InMind server.
+
+      Broadly, the server has 4 collections:
+      \begin{enumerate}
+      \item \textbf{Groups} are collections of users.
+        Notable stored fields are the initialization vector, used for security purposes,
+        and the members list.
+      \item \textbf{Users} are individual users.
+        This is mostly for authentication purposes.
+        The user himself would recognize three of the stored fields,
+        the login username, login password, an alias for display.
+        Other fields include the group ID, which corresponds to the group the user is in,
+        and a record of whether or not the user is the lead user in the group.
+      \item \textbf{Topics} are the topics that users generate.
+        This datatype stores all the expected data for functioning,
+        such as the title, current status, etc,
+        but also helps with security and logs its own life cycle.
+      \item \textbf{Messages} are the messages that users send on each topic.
+        Messages are also stored encrypted on the server,
+        since both encryption and decryption happens on the app side.
+      \end{enumerate}
+
+    \subsection{HTTP calls}
+      The RESTful API supported the creation and modification of the datatypes
+      stored in the database.
+
+
+
+    \subsection{Administration}
 
     \subsection{Security}
+      \subsubsection{Authentication}
+
+      \subsubsection{Encryption}
+        For added protection for our users, all messages were encrypted.
+        This encryption was on several levels, primarily using the AES standard.
+        %TODO
+
+        \begin{enumerate}
+        \item \textbf{The IV} is shared within the group.
+        \item \textbf{The salt} is stored with the topic.
+        \item \textbf{The passphrase} is stored with the topic as well.
+        \end{enumerate}
+
+      \subsection{Other Measures}
       During the study, while the server was running, it was password protected,
       as was the database in which the data was stored.
 
-      For added protection for our users, all messages were encrypted.
-      This encryption was on several levels, primarily using the AES standard.
-      TBD
-
-      \begin{enumerate}
-      \item To protect user identities, signup for the lead participant was performed manually.
-      All "lead" participants had to be entered into the database manually,
-      and later participants sign up anonymously with a user id and password.
       Data on all users are deidentified;
       the database remembers only an alphanumeric user id.
-      \item Each group shares an initialization vector.
-      \item Each topic has a salt and an autogenerated passphrase.
-      \end{enumerate}
+      All "lead" participants had to be entered into the database manually,
+      and later participants sign up anonymously with a user id and password.
+
