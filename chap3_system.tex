@@ -1,7 +1,92 @@
 \chapter{System Overview}
+  The system designed to address a subset of these concerns is essentially a mobile application.
+  I designed and implemented,
+  from the ground up, an application called InMind.
+  InMind would enable the sort of slow,
+  targeted communication that had been useful to bereaved individuals in forums,
+  but connect individuals with people that they choose.
 
-  \section{Application}
+  Broadly, the goal of the application was to enable users to create spaces
+  with themed topics, that had a status of some nature.
+  This status could represent the user's well being, the well being of someone else
+  that the user cares about, the progress of a project, the energy level of a group,
+  the level of anxiety the user is suffering from, etc.
+  Since mobile applications are always accessible,
+  these themed spaces could be updated at any point
+  during the day when the status of that topic changes.
+
+  Finally, since individuals have shown to be sensitive
+  to which particular people they share
+  sensitive topics with \cite{},
+  the users can choose when they begin the topic
+  which of their people they want to share with.
+
+  To summarize, once shared, the topics would be defined by several characteristics:
+
+  \begin{enumerate}
+  \item \textbf{Title} - Answers the question of \textbf{What}. The user can choose what to call the topic.
+  \item \textbf{Share With} - Answers the question of \textbf{Who}.The topic is like a static chatroom,
+    since the people who are listening in are always the same.
+  \item \textbf{Status} - Answers the question of \textbf{How}. The "status icon" of the topic sets the mood
+    of the topic. Unlike for chatrooms,
+    this status allows the space to reflect the state
+    of the user who started the topic.
+  \end{enumerate}
+
+  Within those spaces, we wanted to encourage communication.
+  Here, although I was inspired by the nature of online forums,
+  where many people reach out for support,
+  our goal was more influenced by the nature of mobile communications.
+  On a mobile device, users expect to use abbreviated conversation.
+  Although the thoughts may be complex, the messages composed on a mobile device
+  tend to be very short.
+
+  \section{Application End}
+
+    \subsection{Platform Choice}
+    The application was written for Android, targeting API 18,
+    but supports down to API 13.
+
+    I chose to develop in Android primarily because the Affective Computing Group
+    has a recent tradition for doing so.
+    My primary reason for choosing Google Android over Apple iOS include
+    the prevalence of Android devices.
+    Android has been dominating the mobile market since 2012,
+    and if InMind were to be released to the public,
+    an Android application is more likely to reach out to a broader audience.
+
+    The InMind application supports API 13 through 18, 
+    corresponding, respectively, to Android 3.2 Honeycomb and 4.3 Jellybean.
+
+    Android 4.3, Jellybean, was released the year ago, but is by far
+    the most prevalent in the MIT target population due to the devices
+    that supported it sold over the course of the year.
+    During development, Android 4.4, KitKat is being pushed out to devices,
+    but yet isn't available to a significant degree.
+
+    At the opposite end, API 13, was released with Android 3.2 HoneyComb
+    in 2011, 3 years prior to this date of writing.
+    Mobile devices have a life span of about two years,
+    and thus it is unlikely for Android users to be
+    running versions of Android older than API 13.
+
     \subsection{Hardware}
+    InMind has to integrate into a user's existing communication methods,
+    as that is the environment actually encountered in the lives of people.
+    Thus, emulating more typical applications,
+    InMind is designed to be installed onto the user's existing mobile device.
+
+    As previously suggested by the range of compatible Android versions,
+    InMind is designed to be run on an assortment of devices.
+    
+    In addition to version issues, Android devices vary significantly in form factor.
+    The two most popular are cell phone-like devices, which have roughly a 4" screen,
+    and small tablets, which have roughly a 7" screen.
+
+    I developed primarily on two devices, a Samsung S4, with a 4" screen,
+    and a 2012 Nexus 7, with a 7" screen.
+    Design objectives for all layouts was to be attractive on the cell-phone-sized screens,
+    and reasonably functional on larger tablet screens.
 
     \subsection{Security}
 
@@ -43,7 +128,6 @@
 
 
   \section{Design Challenges}
-    \subsection{
     \subsection{Lightening the burden of communication}
 
     \subsection{Technology as an excuse}
