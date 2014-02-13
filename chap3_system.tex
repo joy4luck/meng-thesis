@@ -100,6 +100,10 @@
 
       Since the iconography of the topics is very important,
       the main page gathers the icons of the topics in a scrolling view.
+      Each topic is labeled with its title and owner.
+      Whenever a topic is updated, whether with a message from someone,
+      or with a status change, everyone who can see the topic will see the topic
+      lit up with a yellow glow, indicating that there is something to see under that topic.
 
       As the number of topics increases,
       it becomes increasingly important to have a way to organize the topics.
@@ -119,11 +123,6 @@
       Some ideas include bringing out topics that are particularly important,
       particularly serious or un-serious, created by specific people,
       or even filtering by higher level themes.
-
-      Below the scrolling view of topics that displays the topics
-      that match the filter, there is a small box that displays the prompts of the day.
-
-      The prompts change every day, and are displayed in discreet plain text.
 
       Since the topics and their corresponding messages may be private in nature,
       possibly even more private than the other material storied on the device,
@@ -150,12 +149,12 @@
       \item A background color, to make the icon distinct from others like it.
       \item A "character" icon, whose status changes between 5 to 8 different levels.
       \end{enumerate}
+
       As previously mentioned, the icon is very important in setting
       the theme for the topic, since its state represents the status of the topic
       in reality.
-
       The design of the icons is very important in influencing how
-      the users interact with the topics.
+      the users interact with the topics. 
       There are three kinds of icons, and they represent three types of statuses.
       \begin{enumerate}
       \item \textbf{Plants} grow in a colored pot. They are a good general purpose icon as they are neutral,
@@ -170,12 +169,51 @@
       The progression of icons is completely detailed in the appendix.
 
       The symbology was unclear to early beta testers,
-      and choosing an appropriate icon for a topic can be difficult.
+      suggesting that choosing an appropriate icon for a topic can be difficult.
       The topic creation page helps by providing
       a short blurb to describe how to use each icon type.
 
       \subsubsection{Topic View}
+      From the home page,
+      the user can select a topic to jump to that topic's page.
+      Screenshots of the topic page can be see in \cite{}
+
+      The topic page is primarily modeled after a chatroom,
+      or more common on the mobile device platform,
+      a text message log.
+      The previous messages in that topic are displayed on the main view,
+      in reverse chronological order, similar to most chatroom and text message application.
+
+      A button near the top toggles the appearance of a panel that shows data and controls
+      related to the topic.
+      The data panel has a text section with the topic creation date and who the topic is shared with.
+      The current icon for the topic is shown, as expected, as are 3 buttons for controls.
+
+      With the first two buttons,
+      the owner of a topic can increase or decrease the state of the icon.
+      These changes are logged in the message logs,
+      so that people with whom the topic has been shared with
+      can also track the status of the topic.
+
+      The last button allows the owner to archive a plant,
+      effectively freezing the plant and constraining it to the archive view.
+      Archived plants also have a similar view,
+      but the status change and messaging capabiliies are disabled.
+      Archived plants provide a record of interactions,
+      but cannot be interacted with further unless they are brought out of the archive.
+
       \subsubsection{Prompts and Notifications}
+      InMind has two other visible features.
+
+      Below the scrolling view of topics that displays the topics
+      that match the filter, there is a small box that displays the prompts of the day.
+      The prompts change every day, and are displayed in discreet plain text.
+      The prompts are designed to help encourage creative topic creation.
+
+      Further, since the prompts change every day,
+      and there is always something to consider, InMind has a daily notification system.
+      After 24 hours of inactivity, a notification appears on the mobile device,
+      reminding the user to check InMind for the day's prompt.
 
     \subsection{User Model}
 
