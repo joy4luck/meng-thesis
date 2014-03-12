@@ -3,11 +3,20 @@
   and better understand the methods of communication likely to be used by
   modern people in the near future, I chose to design
   a mobile application, now called InMind.
+  The application icon is shown in figure \ref{fig:application_icon}
+
+  \begin{figure}
+  \centering
+  \includegraphics[width=0.3\textwidth]{inmind_logo2.png}
+  \caption{InMind is an Android Application,
+  which lives on users' personal devices,
+  so that it is available during the day.}
+  \label{fig:application_icon}
+  \end{figure}
 
   InMind would enable a kind of slow,
   targeted communication that had been useful to bereaved individuals in forums,
   but connect individuals with people that they choose.
-
 
   \section{Interaction Design}
   Broadly, the goal of the application was to create support groups and 
@@ -19,6 +28,17 @@
   Since mobile applications are always accessible,
   these themed spaces could be updated at any point
   during the day when the status of that topic changes.
+  At any point during the day,
+  the user can choose to open the app and create or update a topic.
+  Figure \ref{fig:user_interaction} shows the user activities
+  that are likely, along with the application view screens that are involved.
+ 
+  \begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{user_interaction.jpg}
+  \caption{Flowchart of likely user interactions on InMind.}
+  \label{fig:user_interaction}
+  \end{figure}
 
   Finally, since individuals have shown to be sensitive
   to which particular people they share
@@ -51,6 +71,19 @@
       are likely asymmetric on several fronts.
       On each individual topic, there is a significant difference between the owner
       and the users that were invited to share the topic.
+      The topic life cycle and available interactions for the owner
+      and those people the owner shares the topic with
+      is shown in figure \ref{fig:topic_lifecycle}.
+
+        \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{topic_lifecycle.jpg}
+        \caption{Topic lifecycle and possible interactions.
+        The Owner creates the topic, and is in control of its status,
+        as well as its archive state.
+        The people the topic is Shared With can comment and send smiles.}
+        \label{fig:topic_lifecycle}
+        \end{figure}
 
       The owner is able to control the state of the topic,
       and thus has the power to control the theme of the conversation.
@@ -237,15 +270,15 @@
       }
       \centering
       \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{ic_plant2.png}
+        \includegraphics[width=.7\textwidth]{ic_plant2.png}
          \caption{Plant}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{ic_bird3.png}
+        \includegraphics[width=.7\textwidth]{ic_bird3.png}
         \caption{Bird}
       \end{subfigure}
       \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{ic_hamster2.png}
+        \includegraphics[width=.7\textwidth]{ic_hamster2.png}
         \caption{Hamster}
       \end{subfigure}
       \label{fig:icon_types}
@@ -266,6 +299,7 @@
           Topic views show the topic's current status icon,
           controls available to the user,
           and messages that have been left under that topic.
+          Messages have been blurred, and controls are circled in red.
           (a) If you own a topic, you can adjust its status.
           (b) On someone else's topic, you can leave a smile.
           (c) You can see only your own archived topics,
@@ -380,7 +414,7 @@
 
       Secondly, all the messages are stored on the device in encrypted form.
       I will describe the encryption standard used by InMind more thoroughly
-      later in the security segment of the server design, in \cite{},
+      later in the security segment of the server design, in section \ref{sec:security}.
       but suffice it to say for now that to encrypt of decrypt a message, 
       the user needs an initialization vector (IV),
       a salt, and a passphrase.
@@ -397,7 +431,7 @@
       lightweight maintenance, and easy integration with MongoDB for data retention.
 
       MongoDB gave us flexibility for designing how we wanted data to be stored,
-      and we took advantage of MongoDB\'s simple backup mechanism for data integrity.
+      and we took advantage of MongoDB's simple backup mechanism for data integrity.
 
       The server was hosted on an MIT Media Lab server.
 
@@ -413,7 +447,27 @@
 
       The RESTful API supported the creation and modification of the datatypes
       stored in the database.
-      Please see the table in \cite{} for a summary of all the API calls.
+      Please see the table in figure \ref{fig:api_table} for a summary of all the API calls.
+
+    \begin{figure}
+    \centering
+    \begin{tabular}{ | l | l | l |}
+    \hline
+    URL & Type & Action \\ \hline
+    /users & POST & Create a new user \\[5pt] \hline
+    /users/check & GET & Check for new users in your group. \\[5pt] \hline
+    /users/IV & GET & Get Initialization Vector for the group. \\[5pt] \hline
+    /topics & POST & Start a new topic. \\[5pt] \hline
+    /topics/update & POST & Update a topic that you own. \\[5pt] \hline
+    /topics/check & GET & Check for new topics shared with you. \\[5pt] \hline
+    /messages & POST & Post a message to a topic. \\[5pt] \hline
+    /messages/check & GET & Get messages posted since last pinged. \\[5pt]
+    \hline
+    \end{tabular}
+
+    \caption{API calls available on the server}
+    \label{fig:api_table}
+    \end{figure}
 
     \subsection{Database Schema}
       The InMind server is supported by a MongoDB NoSQL database system.
@@ -423,9 +477,9 @@
       For each of the actions performed by the users,
       we logged the timestamp of the operation as well as the recipients.
 
-      Although MongoDB technically doesn\'t use a schema,
+      Although MongoDB technically doesn't use a schema,
       it is still useful to describe the structure of the data in terms of its schema.
-      See \cite{} for a listing of the collections and data stored by
+      See \ref{sec:appb_data} for a listing of the collections and data stored by
       the InMind server.
 
       Broadly, the server has 4 collections:
@@ -472,6 +526,7 @@
       I wrote a bash script.
 
     \subsection{Security}
+    \label{sec:security}
       \subsubsection{Authentication}
         For authentication, I chose to user regular HTTP authentication over HTTPS.
         This is a common implementation, since the SSL protocol of HTTPS
@@ -485,7 +540,6 @@
       \subsubsection{Encryption}
         For added protection for our users, all messages were encrypted.
         This encryption was on several levels, primarily using the AES standard.
-        %TODO Describe AES!!!!
 
         \begin{enumerate}
         \item \textbf{The IV} is shared within the group.
