@@ -8,102 +8,6 @@
   targeted communication that had been useful to bereaved individuals in forums,
   but connect individuals with people that they choose.
 
-  \section{Design Challenges}
-    \subsection{Lightening the Burden of Communication}
-    Everything about designing for mobile is to make tasks "easier" for the user.
-    In this case, we have the even more daunting task of making
-    the difficult task of communicating about tough topics easier.
-
-    We broadly called this the challenge of "lightening the burden of communication."
-    The burden of communication can be split roughly into two types:
-    logistical and psychological.
-    Technology provides the convenience of text messaging,
-    group messaging, etc, which helps to address the logistical burden,
-    but the psychological burden is mostly left to the individual.
-
-    The psychological burden can take many forms.
-    Two that we hoped to address were:
-    \begin{enumerate}
-    \item The difficulty of initializing a difficult topic.
-    \item The desire to not burden the receiver.
-    \end{enumerate}
-
-    \subsection{Technology as an Excuse}
-    More ambitiously, we also want to aid in the usage of technology as an excuse.
-    This mechanism involves individuals in a technological space being prompted
-    to interact by the technology.
-    
-    There is a degree of trust in technology, since it acts often as an impartial third party,
-    and we can take advantage of that to encourage use of our technology as an excuse for action.
-    These actions can be as varied as 
-    general communication,
-    assistance, or even intervention.
-
-    \subsection{Beautiful Mobile Experience}
-    The more I developed for the mobile device,
-    the more I realized that mobile applications are held to a high standard for beauty.
-
-    Although web designers can get away with sparse implementations on web browser based
-    interactions,
-    this does not apply equally well to mobile designers.
-    Mobile applications are subject to a "survival of the fittest" in the application
-    marketplaces, where the poorly designed applications die out from low usership.
-    Thus, the applications that most users are used to are beautiful.
-    From the icon design (see figure \ref{fig:icons} for the evolution of the InMind logo)
-    to layout design (see figures \ref{fig:home_screens} and \ref{fig:topic_screens}
-    to see examples of the evolution of the InMind look and feel),
-    I designed InMind to live up to that high standard.
-
-  \begin{figure}
-    \caption{\textbf{Evolution of the InMind logo} --
-    On feedback from users, the icon evolved to better fit what users expect from
-    mobile applications.
-    }
-    \centering
-    \begin{subfigure}[b]{0.25\textwidth}
-      \includegraphics[width=\textwidth]{inmind_logo0.png}
-      \caption{V1: Initial logo}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.25\textwidth}
-      \includegraphics[width=\textwidth]{inmind_logo1.png}
-       \caption{V2: Brightening it}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.25\textwidth}
-      \includegraphics[width=\textwidth]{inmind_logo2.png}
-       \caption{V3: Making it pop}
-    \end{subfigure}
-    \label{fig:icons}
-  \end{figure}
-
-  \begin{figure}
-    \caption{\textbf{Evolution of InMind Look and Feel Home View} --
-    On feedback from users, the interface evolved to be more intuitive and attractive.}
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-      \includegraphics[width=\textwidth]{planter_init.png}
-      \caption{Home View v1.0}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-      \includegraphics[width=\textwidth]{planter_final.png}
-       \caption{Home View v1.4}
-    \end{subfigure}
-    \label{fig:home_screens}
-  \end{figure}
-
-  \begin{figure}
-    \caption{\textbf{Evolution of InMind Look and Feel Topic View} --
-    On feedback from users, the interface evolved to be more intuitive and attractive.}
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-      \includegraphics[width=\textwidth]{plant_init.png}
-       \caption{Topic View v1.0}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.4\textwidth}
-      \includegraphics[width=\textwidth]{plant_final.png}
-       \caption{Topic View v1.4}
-    \end{subfigure}
-    \label{fig:topic_screens}
-  \end{figure}
 
   \section{Interaction Design}
   Broadly, the goal of the application was to create support groups and 
@@ -215,8 +119,8 @@
     \subsection{Application Structure}
     The interactive part of the application is best described by a description of the views
     and the actions available to the user on them.
-      \subsubsection{Home Page}
-      The home page shows the topics that the user has access to.
+      \subsubsection{Main View}
+      The main view shows the topics that the user has access to.
       See figure \ref{fig:home_screen} for a series of screenshots of the home page design.
 
     \begin{figure}
@@ -279,7 +183,7 @@
       chooses an icon, and chooses who to share the topic with.
 
     \begin{figure}
-      \caption{\textbf{Create Topic} --
+      \caption{\textbf{Creation View} --
           (a) Topic creation involves naming the topic,
           choosing the icon type,
           and choosing who to share the topic with.
@@ -322,7 +226,30 @@
       Their speed can represent arousal,
       or associated energy levels for the topic.
       \end{enumerate}
-      The progression of icons is completely detailed in the appendix.
+      The progression of icons is completely detailed in the appendix,
+      and a few sample icons are shown in figure \ref{fig:icon_types}.
+
+    \begin{figure}
+      \caption{\textbf{Icon Types}
+        (a) Plants represent progress.
+        (b) Birds represent wellness or general status.
+        (c) Hamsters represent activity or arousal.
+      }
+      \centering
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{ic_plant2.png}
+         \caption{Plant}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{ic_bird3.png}
+        \caption{Bird}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{ic_hamster2.png}
+        \caption{Hamster}
+      \end{subfigure}
+      \label{fig:icon_types}
+    \end{figure}
 
       The symbology was unclear to early beta testers,
       suggesting that choosing an appropriate icon for a topic can be difficult.
@@ -332,7 +259,33 @@
       \subsubsection{Topic View}
       From the home page,
       the user can select a topic to jump to that topic's page.
-      Screenshots of the topic page can be see in \cite{}
+      Screenshots of the topic page can be seen in figure \ref{fig:topic_view}.
+
+    \begin{figure}
+      \caption{\textbf{Topic View} --
+          Topic views show the topic's current status icon,
+          controls available to the user,
+          and messages that have been left under that topic.
+          (a) If you own a topic, you can adjust its status.
+          (b) On someone else's topic, you can leave a smile.
+          (c) You can see only your own archived topics,
+          and you can bring them back from the archive
+          and read the messages attached to it.}
+      \centering
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{topic_view_mine.png}
+         \caption{My Topic}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{topic_view_other.png}
+        \caption{Someone Else's Topic}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{topic_view_archived.png}
+        \caption{Archived Topic}
+      \end{subfigure}
+      \label{fig:topic_view}
+    \end{figure}
 
       The topic page is primarily modeled after a chatroom,
       or more common on the mobile device platform,
@@ -359,17 +312,55 @@
       but cannot be interacted with further unless they are brought out of the archive.
 
       \subsubsection{Prompts and Notifications}
-      InMind has two other visible features.
+      InMind has a daily notification system.
+      InMind chooses a random hour between 9:00 A.M. and 3:00 P.M.,
+      and another hour between 4:00 P.M. and 9:00 P.M. to show a notification.
 
-      Below the scrolling view of topics that displays the topics
-      that match the filter, there is a small box that displays the prompts of the day.
-      The prompts change every day, and are displayed in discreet plain text.
-      The prompts are designed to help encourage creative topic creation.
+      The notification first appears as a small icon in the status bar,
+      in the upper left hand corner of
+      the mobile screen, which is visible no matter what the user is doing on their phone.
+      The notification appears on the Android notification drawer,
+      which the user sees when they drag the notification drawer down.
+      On selection,
+      the notification sends the user to InMind,
+      and shows a dialog with the prompt of the day.
+      The prompt in the dialog changes every day,
+      and is chosen random from a bank of 180 prompts,
+      either a thoughtful quote or a question,
+      that is designed to help encourage creative topic creation.
+      See the screen shots in figure \ref{fig:notification} to see the progression
+      from notification to the application.
 
-      Further, since the prompts change every day,
-      and there is always something to consider, InMind has a daily notification system.
-      After 24 hours of inactivity, a notification appears on the mobile device,
-      reminding the user to check InMind for the day's prompt.
+    \begin{figure}
+      \caption{\textbf{Notification System} --
+        InMind's daily notifications remind the user to check the application
+        for updates from other users and new prompts.
+        (a) The notification first appears as a small icon on the
+        Android status bar.
+        Also displayed is the InMind application icon on the Android launcher.
+        (b) Opening the Android notification drawer shows the InMind notification.
+        (c) Clicking it navigates to the application, where a prompt is displayed.
+        The prompt dialog box displays a quote or a question,
+        and allows the user to just to a topic creation if desired.}
+      \centering
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{android_launcher.png}
+         \caption{Icons}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{notification.png}
+        \caption{Notification Drawer}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{prompt_dialog.png}
+        \caption{Prompt Dialog}
+      \end{subfigure}
+      \label{fig:notification}
+    \end{figure}
+
+      To see the prompt again, the user can use a small button
+      below the scrolling view of topics that displays the topics
+      that match the filter.
 
     \subsection{Security}
       Due to the sensitive nature of the application,
@@ -510,3 +501,100 @@
       the database remembers only an alphanumeric user id.
       All "lead" participants had to be entered into the database manually,
       and later participants sign up anonymously with a user id and password.
+
+  \section{Design Challenges}
+    \subsection{Lightening the Burden of Communication}
+    Everything about designing for mobile is to make tasks "easier" for the user.
+    In this case, we have the even more daunting task of making
+    the difficult task of communicating about tough topics easier.
+
+    We broadly called this the challenge of "lightening the burden of communication."
+    The burden of communication can be split roughly into two types:
+    logistical and psychological.
+    Technology provides the convenience of text messaging,
+    group messaging, etc, which helps to address the logistical burden,
+    but the psychological burden is mostly left to the individual.
+
+    The psychological burden can take many forms.
+    Two that we hoped to address were:
+    \begin{enumerate}
+    \item The difficulty of initializing a difficult topic.
+    \item The desire to not burden the receiver.
+    \end{enumerate}
+
+    \subsection{Technology as an Excuse}
+    More ambitiously, we also want to aid in the usage of technology as an excuse.
+    This mechanism involves individuals in a technological space being prompted
+    to interact by the technology.
+    
+    There is a degree of trust in technology, since it acts often as an impartial third party,
+    and we can take advantage of that to encourage use of our technology as an excuse for action.
+    These actions can be as varied as 
+    general communication,
+    assistance, or even intervention.
+
+    \subsection{Beautiful Mobile Experience}
+    The more I developed for the mobile device,
+    the more I realized that mobile applications are held to a high standard for beauty.
+
+    Although web designers can get away with sparse implementations on web browser based
+    interactions,
+    this does not apply equally well to mobile designers.
+    Mobile applications are subject to a "survival of the fittest" in the application
+    marketplaces, where the poorly designed applications die out from low usership.
+    Thus, the applications that most users are used to are beautiful.
+    From the icon design (see figure \ref{fig:icons} for the evolution of the InMind logo)
+    to layout design (see figures \ref{fig:home_screens} and \ref{fig:topic_screens}
+    to see examples of the evolution of the InMind look and feel),
+    I designed InMind to live up to that high standard.
+
+  \begin{figure}
+    \caption{\textbf{Evolution of the InMind logo} --
+    On feedback from users, the icon evolved to better fit what users expect from
+    mobile applications.
+    }
+    \centering
+    \begin{subfigure}[b]{0.25\textwidth}
+      \includegraphics[width=\textwidth]{inmind_logo0.png}
+      \caption{V1: Initial logo}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+      \includegraphics[width=\textwidth]{inmind_logo1.png}
+       \caption{V2: Brightening it}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+      \includegraphics[width=\textwidth]{inmind_logo2.png}
+       \caption{V3: Making it pop}
+    \end{subfigure}
+    \label{fig:icons}
+  \end{figure}
+
+  \begin{figure}
+    \caption{\textbf{Evolution of InMind Look and Feel Home View} --
+    On feedback from users, the interface evolved to be more intuitive and attractive.}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{planter_init.png}
+      \caption{Home View v1.0}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{planter_final.png}
+       \caption{Home View v1.4}
+    \end{subfigure}
+    \label{fig:home_screens}
+  \end{figure}
+
+  \begin{figure}
+    \caption{\textbf{Evolution of InMind Look and Feel Topic View} --
+    On feedback from users, the interface evolved to be more intuitive and attractive.}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{plant_init.png}
+       \caption{Topic View v1.0}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{plant_final.png}
+       \caption{Topic View v1.4}
+    \end{subfigure}
+    \label{fig:topic_screens}
+  \end{figure}
