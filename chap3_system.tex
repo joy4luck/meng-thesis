@@ -49,9 +49,61 @@
     Mobile applications are subject to a "survival of the fittest" in the application
     marketplaces, where the poorly designed applications die out from low usership.
     Thus, the applications that most users are used to are beautiful.
-    From the icon design (see \cite{} for the evolution of the InMind logo)
-    to layout design (see \cite{} for the evolution of the InMind look and feel),
+    From the icon design (see figure \ref{fig:icons} for the evolution of the InMind logo)
+    to layout design (see figures \ref{fig:home_screens} and \ref{fig:topic_screens}
+    to see examples of the evolution of the InMind look and feel),
     I designed InMind to live up to that high standard.
+
+  \begin{figure}
+    \caption{\textbf{Evolution of the InMind logo} --
+    On feedback from users, the icon evolved to better fit what users expect from
+    mobile applications.
+    }
+    \centering
+    \begin{subfigure}[b]{0.25\textwidth}
+      \includegraphics[width=\textwidth]{inmind_logo0.png}
+      \caption{V1: Initial logo}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+      \includegraphics[width=\textwidth]{inmind_logo1.png}
+       \caption{V2: Brightening it}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.25\textwidth}
+      \includegraphics[width=\textwidth]{inmind_logo2.png}
+       \caption{V3: Making it pop}
+    \end{subfigure}
+    \label{fig:icons}
+  \end{figure}
+
+  \begin{figure}
+    \caption{\textbf{Evolution of InMind Look and Feel Home View} --
+    On feedback from users, the interface evolved to be more intuitive and attractive.}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{planter_init.png}
+      \caption{Home View v1.0}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{planter_final.png}
+       \caption{Home View v1.4}
+    \end{subfigure}
+    \label{fig:home_screens}
+  \end{figure}
+
+  \begin{figure}
+    \caption{\textbf{Evolution of InMind Look and Feel Topic View} --
+    On feedback from users, the interface evolved to be more intuitive and attractive.}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{plant_init.png}
+       \caption{Topic View v1.0}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+      \includegraphics[width=\textwidth]{plant_final.png}
+       \caption{Topic View v1.4}
+    \end{subfigure}
+    \label{fig:topic_screens}
+  \end{figure}
 
   \section{Interaction Design}
   Broadly, the goal of the application was to create support groups and 
@@ -66,7 +118,7 @@
 
   Finally, since individuals have shown to be sensitive
   to which particular people they share
-  sensitive topics with \cite{},
+  sensitive topics with \cite{patil05},
   the users can choose when they begin the topic
   which of their people they want to share with.
 
@@ -165,7 +217,33 @@
     and the actions available to the user on them.
       \subsubsection{Home Page}
       The home page shows the topics that the user has access to.
-      See \cite{} for a series of screenshots of the home page design.
+      See figure \ref{fig:home_screen} for a series of screenshots of the home page design.
+
+    \begin{figure}
+      \caption{\textbf{Main View} --
+          (a) The main view has a sliding window of topics.
+          Topic icons are prominently displayed,
+          as are the topic titles and owners.
+          Topics that have updates are highlighted with a yellow glow.
+          (b) Since there can many topics shared withi the group,
+          the main view has filters that can show a subset of the topics.
+          (c) Users can make their own collections to sort topics
+          the way they want to.}
+      \centering
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{home_view.png}
+         \caption{Main Home view}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{home_nav.png}
+        \caption{Filters}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{new_collection.png}
+        \caption{New Collection}
+      \end{subfigure}
+      \label{fig:home_screen}
+    \end{figure}
 
       Since the iconography of the topics is very important,
       the main page gathers the icons of the topics in a scrolling view.
@@ -178,7 +256,7 @@
       it becomes increasingly important to have a way to organize the topics.
       I chose to implement this in the form of filters.
       The filters are available in a dropdown menu in the action bar at the top of the screen.
-      (The second screenshot in \cite{})
+      (The second screenshot in figure \ref{fig:home_screen})
       There are three default filters that always filter for topics that meet certain criteria.
       The first two are "Mine" and "Shared with Me"
       which filter for, respectively, topics the user has created and those he did not.
@@ -186,7 +264,7 @@
       Archived topics do not appear in any other filtered view.
 
       Finally, the user can create their own filters.
-      The filter creation page is shown in \cite{}.
+      The filter creation page is shown in the third screenshot in figure \ref{fig:home_screen}.
       The freedom to create their own filters allows users to organize
       their topics however they like.
       Some ideas include bringing out topics that are particularly important,
@@ -196,9 +274,28 @@
       \subsubsection{Creation View}
       When a user want to initiate the topic,
       they can click the add button on the action bar at the top of the home page.
-      This opens up the creation view, which is shown in \cite{}.
+      This opens up the creation view, which is shown in figure \ref{fig:topic_create}.
       On this page, the user titles the topic,
       chooses an icon, and chooses who to share the topic with.
+
+    \begin{figure}
+      \caption{\textbf{Create Topic} --
+          (a) Topic creation involves naming the topic,
+          choosing the icon type,
+          and choosing who to share the topic with.
+          (b) A dropdown menu allows users to choose which icon
+          represents the topic.}
+      \centering
+      \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{topic_create.png}
+         \caption{Create Topic}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{topic_create_choose.png}
+        \caption{Choose Icon Type}
+      \end{subfigure}
+      \label{fig:topic_create}
+    \end{figure}
 
       The choice of the icon is very important in setting the theme of the topic.
       First, let me explain the structure of InMind status icons.
@@ -221,7 +318,7 @@
       since they are associated with positive feelings of growth.
       \item \textbf{Birds} are positioned relative to a colored water level.
       They indicate affective wellness or degree of success in the face of difficulty.
-      \item \textbf{Hampsters} run on a colored exercise wheel.
+      \item \textbf{Hamsters} run on a colored exercise wheel.
       Their speed can represent arousal,
       or associated energy levels for the topic.
       \end{enumerate}
