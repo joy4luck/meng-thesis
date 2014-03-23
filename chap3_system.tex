@@ -21,7 +21,8 @@
   \section{Interaction Design}
   Broadly, the goal of the application was to create support groups and 
   enable users within that group to create spaces
-  with themed topics, that had a status of some nature.
+  with themed topics.
+  The topics would persist over time and maintain a current status of some nature.
   This status could represent the user's well being, the well being of someone else
   that the user cares about, the progress of a project, the energy level of a group,
   the level of anxiety the user is suffering from, etc.
@@ -52,7 +53,7 @@
   \item \textbf{Title} - Answers the question of \textbf{What}. The user can choose what to call the topic.
   \item \textbf{Share With} - Answers the question of \textbf{Who}.The topic is like a static chatroom,
     since the people who are listening in are always the same.
-  \item \textbf{Status} - Answers the question of \textbf{How}. The "status icon" of the topic sets the mood
+  \item \textbf{Status} - Answers the question of \textbf{How}. The ``status icon" of the topic sets the mood
     of the topic. Unlike for chatrooms,
     this status allows the space to reflect the state
     of the user who started the topic.
@@ -98,7 +99,7 @@
       This is anticipated in the design,
       as people have differing needs for communication,
       but the application will encourage ownership of at least a topic or two,
-      otherwise the "Mine" filter will remain very empty.
+      otherwise the ``Mine" filter will remain very empty.
 
   \section{Android Application}
 
@@ -119,7 +120,7 @@
     The InMind application supports API 13 through 18, 
     corresponding, respectively, to Android 3.2 Honeycomb and 4.3 Jellybean.
 
-    Android 4.3, Jellybean, was released the year ago, but is by far
+    Android 4.3, Jellybean, was released a year ago, but is by far
     the most prevalent in the MIT target population due to the devices
     that supported it sold over the course of the year.
     During development, Android 4.4, KitKat is being pushed out to devices,
@@ -146,7 +147,7 @@
 
     I developed primarily on two devices, a Samsung S4, with a 4" screen,
     and a 2012 Nexus 7, with a 7" screen.
-    Design objectives for all layouts was to be attractive on the cell-phone-sized screens,
+    The design objective for all layouts was to be attractive on the cell-phone-sized screens,
     and reasonably functional on larger tablet screens.
 
     \subsection{Application Structure}
@@ -162,10 +163,17 @@
           Topic icons are prominently displayed,
           as are the topic titles and owners.
           Topics that have updates are highlighted with a yellow glow.
-          (b) Since there can many topics shared withi the group,
+          (b) Since there can be many topics shared within the group,
           the main view has filters that can show a subset of the topics.
+          The filter dropdown is circled in red.
+          The first 4 filters are defaults,
+          the ``+ New Collection" takes the user to the
+          collection creation page (shown in the next subfigure),
+          and the ``Important" collection shown here is a custom collection.
           (c) Users can make their own collections to sort topics
-          the way they want to.}
+          the way they want to.
+          Boxed in red are all the topics that are available to the user
+          at the moment, and can be included in the new collection.}
       \centering
       \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\textwidth]{home_view.png}
@@ -190,14 +198,14 @@
       lit up with a yellow glow, indicating that there is something to see under that topic.
 
       As the number of topics increases,
-      it becomes increasingly important to have a way to organize the topics.
+      it becomes important to have a way to organize the topics.
       I chose to implement this in the form of filters.
       The filters are available in a dropdown menu in the action bar at the top of the screen.
       (The second screenshot in figure \ref{fig:home_screen})
       There are three default filters that always filter for topics that meet certain criteria.
-      The first two are "Mine" and "Shared with Me"
+      The first two are ``Mine" and ``Shared with Me"
       which filter for, respectively, topics the user has created and those he did not.
-      The last is "Archived" which shows only the archived topics.
+      The last is ``Archived" which shows only the archived topics.
       Archived topics do not appear in any other filtered view.
 
       Finally, the user can create their own filters.
@@ -219,7 +227,7 @@
       \caption{\textbf{Creation View} --
           (a) Topic creation involves naming the topic,
           choosing the icon type,
-          and choosing who to share the topic with.
+          and choosing whom to share the topic with.
           (b) A dropdown menu allows users to choose which icon
           represents the topic.}
       \centering
@@ -234,16 +242,7 @@
       \label{fig:topic_create}
     \end{figure}
 
-      The choice of the icon is very important in setting the theme of the topic.
-      First, let me explain the structure of InMind status icons.
-      The icons are of three kinds: plants, birds, and hampsters.
-      All three icons are of a similar structure, and have two parts.
-      \begin{enumerate}
-      \item A background color, to make the icon distinct from others like it.
-      \item A "character" icon, whose status changes between 5 to 8 different levels.
-      \end{enumerate}
-
-      As previously mentioned, the icon is very important in setting
+      The choice of icon is very important in setting
       the theme for the topic, since its state represents the status of the topic
       in reality.
       The design of the icons is very important in influencing how
@@ -289,6 +288,15 @@
       The topic creation page helps by providing
       a short blurb to describe how to use each icon type.
 
+      All icons are of a similar structure, and have two parts.
+      \begin{enumerate}
+      \item A background color, to make the icon distinct from others like it.
+      This color never changes for a topic.
+      \item A ``character" icon, whose status changes between 5 to 8 different levels.
+      When the owner changes the status of the icon,
+      the character icon changes to reflect it.
+      \end{enumerate}
+
       \subsubsection{Topic View}
       From the home page,
       the user can select a topic to jump to that topic's page.
@@ -330,12 +338,13 @@
       A button near the top toggles the appearance of a panel that shows data and controls
       related to the topic.
       The data panel has a text section with the topic creation date and who the topic is shared with.
-      The current icon for the topic is shown, as expected, as are 3 buttons for controls.
+      The current icon for the topic is shown, as expected, as are buttons for controls.
 
+      If the user owns the topic being displayed, 3 buttons are shown.
       With the first two buttons,
       the owner of a topic can increase or decrease the state of the icon.
       These changes are logged in the message logs,
-      so that people with whom the topic has been shared with
+      so that people with whom the topic has been shared
       can also track the status of the topic.
 
       The last button allows the owner to archive a plant,
@@ -344,6 +353,15 @@
       but the status change and messaging capabiliies are disabled.
       Archived plants provide a record of interactions,
       but cannot be interacted with further unless they are brought out of the archive.
+
+      If the user doesn't own the topic, a smile button is shown.
+      A smile is just a way for someone with whom the topic has been
+      shared with to encourage the owner,
+      and express that he/she is tuning in as well.
+
+      Lastly, for archived topics,
+      nothing can be done to them except by the owner,
+      who can bring them back to active status again.
 
       \subsubsection{Prompts and Notifications}
       InMind has a daily notification system.
@@ -370,12 +388,16 @@
         InMind's daily notifications remind the user to check the application
         for updates from other users and new prompts.
         (a) The notification first appears as a small icon on the
-        Android status bar.
-        Also displayed is the InMind application icon on the Android launcher.
+        Android status bar, circled in red.
+        Also circled is the InMind application on the Android launcher,
+        the main way to get to the application.
         (b) Opening the Android notification drawer shows the InMind notification.
-        (c) Clicking it navigates to the application, where a prompt is displayed.
+        Clicking the notification takes the user to InMind.
+        (c) Once the InMind application is open,
+        a prompt is displayed.
         The prompt dialog box displays a quote or a question,
-        and allows the user to just to a topic creation if desired.}
+        and allows the user to go to the main view, or
+        jump to a topic creation if desired.}
       \centering
       \begin{subfigure}[b]{0.3\textwidth}
         \includegraphics[width=\textwidth]{android_launcher.png}
@@ -409,13 +431,13 @@
       The log out option is available under options from the home page.
       When a user logs out, all the application data stored on the device is wiped.
       This makes it impossible for anyone to get access to that user's
-      messages or topics without authenticatin as that user.
+      messages or topics without authenticating as that user.
       Conversely, on successful login, all the data is re-downloaded onto the device.
 
       Secondly, all the messages are stored on the device in encrypted form.
       I will describe the encryption standard used by InMind more thoroughly
       later in the security segment of the server design, in section \ref{sec:security}.
-      but suffice it to say for now that to encrypt of decrypt a message, 
+      but suffice it to say for now that to encrypt or decrypt a message, 
       the user needs an initialization vector (IV),
       a salt, and a passphrase.
       An authenticated ping to server fetches an IV for the group that the user is in.
@@ -438,11 +460,11 @@
     \subsection{RESTful API}
       I used the Express server to support a RESTful API.
       The InMind Android application,
-      which I'll often refer to as "the client" in this section,
+      which I'll often refer to as ``the client" in this section,
       only ever performs GET and POST calls to the server to accomplish operations.
       The GET and POST calls are all that are needed to
       retreive, add, and modify data stored on the server.
-      For example, a fresh login is a series of GET calls with a "last updated" timestamp
+      For example, a fresh login is a series of GET calls with a ``last updated" timestamp
       of 0, and later refreshes are the same calls, with a more recent time stamp.
 
       The RESTful API supported the creation and modification of the datatypes
@@ -553,16 +575,16 @@
 
       Data on all users are deidentified;
       the database remembers only an alphanumeric user id.
-      All "lead" participants had to be entered into the database manually,
+      All ``lead" participants had to be entered into the database manually,
       and later participants sign up anonymously with a user id and password.
 
   \section{Design Challenges}
     \subsection{Lightening the Burden of Communication}
-    Everything about designing for mobile is to make tasks "easier" for the user.
+    Everything about designing for mobile is to make tasks ``easier" for the user.
     In this case, we have the even more daunting task of making
     the difficult task of communicating about tough topics easier.
 
-    We broadly called this the challenge of "lightening the burden of communication."
+    We broadly called this the challenge of ``lightening the burden of communication."
     The burden of communication can be split roughly into two types:
     logistical and psychological.
     Technology provides the convenience of text messaging,
@@ -594,7 +616,7 @@
     Although web designers can get away with sparse implementations on web browser based
     interactions,
     this does not apply equally well to mobile designers.
-    Mobile applications are subject to a "survival of the fittest" in the application
+    Mobile applications are subject to a ``survival of the fittest" in the application
     marketplaces, where the poorly designed applications die out from low usership.
     Thus, the applications that most users are used to are beautiful.
     From the icon design (see figure \ref{fig:icons} for the evolution of the InMind logo)
