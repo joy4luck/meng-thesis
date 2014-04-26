@@ -3,12 +3,12 @@
   and better understand the methods of communication likely to be used by
   modern people in the near future, I chose to design
   a mobile application, now called InMind.
-  The application icon is shown in figure \ref{fig:application_icon}
+  The application icon is shown in Figure \ref{fig:application_icon}.
 
   \begin{figure}
   \centering
   \includegraphics[width=0.3\textwidth]{inmind_logo2.png}
-  \caption{InMind is an Android Application,
+  \caption[InMind icon]{InMind is an Android Application,
   which lives on users' personal devices,
   so that it is available during the day.}
   \label{fig:application_icon}
@@ -74,15 +74,17 @@
       and the users that were invited to share the topic.
       The topic life cycle and available interactions for the owner
       and those people the owner shares the topic with
-      is shown in figure \ref{fig:topic_lifecycle}.
+      is shown in Figure \ref{fig:topic_lifecycle}.
 
         \begin{figure}
         \centering
         \includegraphics[width=0.6\textwidth]{topic_lifecycle.jpg}
-        \caption{Topic lifecycle and possible interactions.
-        The Owner creates the topic, and is in control of its status,
+        \caption
+        [Topic lifecycle and possible interactions.]
+        {Topic lifecycle and possible interactions.
+        The \textbf{Owner} creates the topic, and is in control of its status,
         as well as its archive state.
-        The people the topic is Shared With can comment and send smiles.}
+        The people the topic is \textbf{Shared With} can comment and send smiles.}
         \label{fig:topic_lifecycle}
         \end{figure}
 
@@ -140,14 +142,13 @@
 
     As previously suggested by the range of compatible Android versions,
     InMind is designed to be run on an assortment of devices.
-    
     In addition to version issues, Android devices vary significantly in form factor.
     The two most popular are cell phone-like devices, which have roughly a 4" screen,
     and small tablets, which have roughly a 7" screen.
 
     I developed primarily on two devices, a Samsung S4, with a 4" screen,
     and a 2012 Nexus 7, with a 7" screen.
-    The design objective for all layouts was to be attractive on the cell-phone-sized screens,
+    The design objective for all layouts was to be attractive on cell-phone-sized screens,
     and reasonably functional on larger tablet screens.
 
     \subsection{Application Structure}
@@ -155,10 +156,10 @@
     and the actions available to the user on them.
       \subsubsection{Main View}
       The main view shows the topics that the user has access to.
-      See figure \ref{fig:home_screen} for a series of screenshots of the home page design.
+      See Figure \ref{fig:home_screen} for a series of screenshots of the home page design.
 
     \begin{figure}
-      \caption{\textbf{Main View} --
+      \caption[Main View]{\textbf{Main View} --
           (a) The main view has a sliding window of topics.
           Topic icons are prominently displayed,
           as are the topic titles and owners.
@@ -201,7 +202,7 @@
       it becomes important to have a way to organize the topics.
       I chose to implement this in the form of filters.
       The filters are available in a dropdown menu in the action bar at the top of the screen.
-      (The second screenshot in figure \ref{fig:home_screen})
+      (The second screenshot in Figure \ref{fig:home_screen})
       There are three default filters that always filter for topics that meet certain criteria.
       The first two are ``Mine" and ``Shared with Me"
       which filter for, respectively, topics the user has created and those he did not.
@@ -209,7 +210,7 @@
       Archived topics do not appear in any other filtered view.
 
       Finally, the user can create their own filters.
-      The filter creation page is shown in the third screenshot in figure \ref{fig:home_screen}.
+      The filter creation page is shown in the third screenshot in Figure \ref{fig:home_screen}.
       The freedom to create their own filters allows users to organize
       their topics however they like.
       Some ideas include bringing out topics that are particularly important,
@@ -219,12 +220,12 @@
       \subsubsection{Creation View}
       When a user want to initiate the topic,
       they can click the add button on the action bar at the top of the home page.
-      This opens up the creation view, which is shown in figure \ref{fig:topic_create}.
+      This opens up the creation view, which is shown in Figure \ref{fig:topic_create}.
       On this page, the user titles the topic,
       chooses an icon, and chooses who to share the topic with.
 
     \begin{figure}
-      \caption{\textbf{Creation View} --
+      \caption[Creation View]{\textbf{Creation View} --
           (a) Topic creation involves naming the topic,
           choosing the icon type,
           and choosing whom to share the topic with.
@@ -259,10 +260,10 @@
       or associated energy levels for the topic.
       \end{enumerate}
       The progression of icons is completely detailed in the appendix,
-      and a few sample icons are shown in figure \ref{fig:icon_types}.
+      and a few sample icons are shown in Figure \ref{fig:icon_types}.
 
     \begin{figure}
-      \caption{\textbf{Icon Types}
+      \caption[Icon Types]{\textbf{Icon Types}
         (a) Plants represent progress.
         (b) Birds represent wellness or general status.
         (c) Hamsters represent activity or arousal.
@@ -300,10 +301,10 @@
       \subsubsection{Topic View}
       From the home page,
       the user can select a topic to jump to that topic's page.
-      Screenshots of the topic page can be seen in figure \ref{fig:topic_view}.
+      Screenshots of the topic page can be seen in Figure \ref{fig:topic_view}.
 
     \begin{figure}
-      \caption{\textbf{Topic View} --
+      \caption[Topic View]{\textbf{Topic View} --
           Topic views show the topic's current status icon,
           controls available to the user,
           and messages that have been left under that topic.
@@ -365,8 +366,17 @@
 
       \subsubsection{Prompts and Notifications}
       InMind has a daily notification system.
+      The purpose of the notification system is to dynamically remind
+      the user to remember the existence of InMind.
+      InMind relies on input from its users,
+      so a notification a few times a day encourages the user
+      to check in,
+      and think about the topics that are currently kept there.
+
       InMind chooses a random hour between 9:00 A.M. and 3:00 P.M.,
       and another hour between 4:00 P.M. and 9:00 P.M. to show a notification.
+      The notification is silent and is designed to be just
+      noticeable when the user turns on their phone to do something else.
 
       The notification first appears as a small icon in the status bar,
       in the upper left hand corner of
@@ -380,11 +390,13 @@
       and is chosen random from a bank of 180 prompts,
       either a thoughtful quote or a question,
       that is designed to help encourage creative topic creation.
-      See the screen shots in figure \ref{fig:notification} to see the progression
+      See the screen shots in Figure \ref{fig:notification} to see the progression
       from notification to the application.
+      To see the prompt again, the user can use a small button
+      below the scrolling view of topics match the filter.
 
     \begin{figure}
-      \caption{\textbf{Notification System} --
+      \caption[Notification System]{\textbf{Notification System} --
         InMind's daily notifications remind the user to check the application
         for updates from other users and new prompts.
         (a) The notification first appears as a small icon on the
@@ -414,9 +426,9 @@
       \label{fig:notification}
     \end{figure}
 
-      To see the prompt again, the user can use a small button
-      below the scrolling view of topics that displays the topics
-      that match the filter.
+
+      The participants' perception of the notification system will
+      be among the topics addressed in interviews with the participants.
 
     \subsection{Security}
       Due to the sensitive nature of the application,
@@ -436,11 +448,11 @@
 
       Secondly, all the messages are stored on the device in encrypted form.
       I will describe the encryption standard used by InMind more thoroughly
-      later in the security segment of the server design, in section \ref{sec:security}.
+      later in the security segment of the server design, in Section \ref{sec:security}.
       but suffice it to say for now that to encrypt or decrypt a message, 
       the user needs an initialization vector (IV),
       a salt, and a passphrase.
-      An authenticated ping to server fetches an IV for the group that the user is in.
+      An authenticated ping to the server fetches an IV for the group that the user is in.
       Other authenticated calls to the server fetch topics,
       and topics come with the salt and passphrase that are neccessary to decrypt messages.
       The messages are only decrypted on display on the topic view.
@@ -469,27 +481,26 @@
 
       The RESTful API supported the creation and modification of the datatypes
       stored in the database.
-      Please see the table in figure \ref{fig:api_table} for a summary of all the API calls.
+      Please see the table in Figure \ref{fig:api_table} for a summary of all the API calls.
 
-    \begin{figure}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{table}
     \centering
-    \begin{tabular}{ | l | l | l |}
+    \begin{tabular}{  l  l  l }
     \hline
     URL & Type & Action \\ \hline
-    /users & POST & Create a new user \\[5pt] \hline
-    /users/check & GET & Check for new users in your group. \\[5pt] \hline
-    /users/IV & GET & Get Initialization Vector for the group. \\[5pt] \hline
-    /topics & POST & Start a new topic. \\[5pt] \hline
-    /topics/update & POST & Update a topic that you own. \\[5pt] \hline
-    /topics/check & GET & Check for new topics shared with you. \\[5pt] \hline
-    /messages & POST & Post a message to a topic. \\[5pt] \hline
+    /users & POST & Create a new user \\[5pt]
+    /users/check & GET & Check for new users in your group. \\[5pt]
+    /users/IV & GET & Get Initialization Vector for the group. \\[5pt]
+    /topics & POST & Start a new topic. \\[5pt]
+    /topics/update & POST & Update a topic that you own. \\[5pt]
+    /topics/check & GET & Check for new topics shared with you. \\[5pt]
+    /messages & POST & Post a message to a topic. \\[5pt]
     /messages/check & GET & Get messages posted since last pinged. \\[5pt]
-    \hline
     \end{tabular}
-
     \caption{API calls available on the server}
     \label{fig:api_table}
-    \end{figure}
+    \end{table}
 
     \subsection{Database Schema}
       The InMind server is supported by a MongoDB NoSQL database system.
@@ -501,7 +512,7 @@
 
       Although MongoDB technically doesn't use a schema,
       it is still useful to describe the structure of the data in terms of its schema.
-      See \ref{sec:appb_data} for a listing of the collections and data stored by
+      See Appendix \ref{sec:appb_data} for a listing of the collections and data stored by
       the InMind server.
 
       Broadly, the server has 4 collections:
@@ -538,7 +549,6 @@
       however, I wanted to be aware of when lead users and groups were created.
       Thus, I left lead user creation as a manual task that I would have to
       perform myself.
-
       For these tasks, which involve modifying user and group membership,
       I just wrote javascript scripts I could run to manipulate the database
       as necessary.
@@ -619,13 +629,14 @@
     Mobile applications are subject to a ``survival of the fittest" in the application
     marketplaces, where the poorly designed applications die out from low usership.
     Thus, the applications that most users are used to are beautiful.
-    From the icon design (see figure \ref{fig:icons} for the evolution of the InMind logo)
-    to layout design (see figures \ref{fig:home_screens} and \ref{fig:topic_screens}
+    From the icon design (see Figure \ref{fig:icons} for the evolution of the InMind logo)
+    to layout design (see Figures \ref{fig:home_screens} and \ref{fig:topic_screens}
     to see examples of the evolution of the InMind look and feel),
     I designed InMind to live up to that high standard.
 
   \begin{figure}
-    \caption{\textbf{Evolution of the InMind logo} --
+    \caption[Evolution of the InMind logo]
+    {\textbf{Evolution of the InMind logo} --
     On feedback from users, the icon evolved to better fit what users expect from
     mobile applications.
     }
@@ -646,7 +657,8 @@
   \end{figure}
 
   \begin{figure}
-    \caption{\textbf{Evolution of InMind Look and Feel Home View} --
+    \caption[Evolution of InMind Look and Feel: Home View]
+    {\textbf{Evolution of InMind Look and Feel: Home View} --
     On feedback from users, the interface evolved to be more intuitive and attractive.}
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
@@ -661,7 +673,9 @@
   \end{figure}
 
   \begin{figure}
-    \caption{\textbf{Evolution of InMind Look and Feel Topic View} --
+    \caption
+    [Evolution of InMind Look and Feel Topic View]
+    {\textbf{Evolution of InMind Look and Feel Topic View} --
     On feedback from users, the interface evolved to be more intuitive and attractive.}
     \centering
     \begin{subfigure}[b]{0.4\textwidth}

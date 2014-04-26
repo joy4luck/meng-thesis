@@ -1,4 +1,54 @@
 \chapter{Data}
+\section{Questionnaire}
+
+\section{Database}
+\label{sec:appb_data}
 \vspace*{-3in}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{table}
+    \centering
+    \begin{tabular}{  l  l  l }
+    \hline
+    Collection & Fields & Type \\
+    \hline
+    Groups
+    & group\_id & String \\
+    & IV & String \\
+    & members & array of Strings \\
+    \hline
+    Users
+    & alias & String \\
+    & is\_lead & Boolean \\
+    & passphrase & String \\
+    & user\_id & String \\
+    \hline
+    Topics
+    & archived & Boolean \\
+    & color & Integer \\
+    & group\_id & String \\
+    & modified\_at & Date \\
+    & owner & String \\
+    & passphrase & String \\
+    & salt & String \\
+    & shared\_with & array of Strings \\
+    & smiles & Integer \\
+    & state & Integer \\
+    & title & String \\
+    & type & String \\
+    \hline
+    Messages
+    & owner & String \\
+    & topic & String \\
+    & text & String \\
+    \end{tabular}
+    \caption[Datatypes in DB]{
+    All datatypes in the database have a unique id and a created\_at date,
+    in addition to the fields listed.}
+    \label{fig:api_table}
+    \end{table}
+
+\section{App Analytics}
+
+
 \clearpage
 \newpage
