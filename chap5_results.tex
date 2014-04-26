@@ -317,20 +317,12 @@
     Since the data set only includes 8 groups,
     it is not particularly meaningful to derive any statistical conclusions
     from them.
-    However, a data set of 8 groups, 36 users, 70 topics, and 1111 messages
+    However, a data set of 36 users, 70 topics, and 1043 messages
     is still useful for observing some likely trends.
-    The questions that I will discuss in this section are the following:
-    \begin{enumerate}
-      \item Who receives topics?
-      \item When are topics made?
-      \item How long does a topic live?
-      \item How many topics are made in each week?
-      \item How many messages are sent each week?
-      \item How much time is spent on the app?
-      \item How much of that is with individual plants/writing notes?
-      \item What time of day is the app accessed?
-      \item For browsing vs status updating?
-    \end{enumerate}
+    The questions that I will discuss in this section address
+    permissions given to topics, the life cycle of a topic,
+    user interactions over 3 weeks of usage,
+    and variability between the 8 groups.
 
     \subsection{Permissions}
     An important question posed at the beginning of this study
@@ -414,34 +406,60 @@
     \label{fig:topic_age}
     \end{figure}
 
-    \subsection{User Engagement}
+    \subsection{General Usage During Study}
+      The number of topics created and number of messages sent changed over
+      the course of the 3 weeks.
+      Counts of how many of each occurred each week are summarized in
+      Table \ref{table:weekly}
+      On average, each group created about 5 topics the first week,
+      2 topics the second week, and 1 topic the third week,
+      and similarly, sent 70, 45, and 15 messages.
+      This pattern is expected for both topics and messages.
+      The first stage involves informing people within the
+      group about both long and short term topics,
+      and afterwards, only updates to long term topics,
+      and creation of new short term topics are expected.
+      We can reasonably postulate that the 3rd week's usage is much more likely
+      to be that demonstrated by users in the long term.
 
-      \item How many topics are made in each week?
-      \item How many messages are sent each week?
+      \begin{table}[h]
+      \centering
+      \caption{Weekly Activity}
+      \label{table:compensation}
+      \begin{tabular}{ l l l}
+      Week & Topics Created & Messages Sent \\
+      \hline
+      1 & 43 & 558      \\[5pt]
+      2 & 17 & 361      \\[5pt]
+      3 & 10 & 124      \\[5pt]
+      \hline
+      Total & 70 & 1043       \\[5pt]
+      \end{tabular}
+      \end{table}
 
-    \subsection{User Engagement}
-      \item How much time is spent on the app?
-      \item How much of that is with individual plants/writing notes?
-      \item What time of day is the app accessed?
-      \item For browsing vs status updating?
+      How much time is spent on the app?
 
-  \begin{table}[h]
-  \centering
-  \caption{Compensation Chart}
-  \label{table:compensation}
-  \begin{tabular}{ l l }
-  Task & Compensation \\
-  \hline
-  Opening Interview & \$10 \\[5pt]
-  Android Week 1 & \$5 \\[5pt]
-  Android Week 2 & \$5 \\[5pt]
-  Android Week 3 & \$5 \\[5pt]
-  Android Week All & \$25 \\[5pt]
-  Closing Interview & \$10 \\[5pt]
-  \hline
-  Total & \$60
-  \end{tabular}
-  \end{table}
+    \subsection{Variability Between Groups}
+
+    The variability between groups is best explained by the
+    qualitative contents of the closing interview,
+    but the data gives us a preview.
+    Looking at the number of messages sent within a group,
+    we see that a likely typical number of messages sent within a group
+    is between 30 and 100,
+    but there is an outlier of more than 600 messages in one group.
+
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.3\textwidth]{messages_per_group.jpeg}
+    \caption[Messages Sent by Groups]{
+      The number of messages sent by each group varied between
+      2 and an outlier at more than 600 messages.
+    }
+    \label{fig:topic_hours}
+    \end{figure}
+
+      
 
   \section{Attrition}
   \label{sec:Android}
