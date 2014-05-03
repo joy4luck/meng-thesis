@@ -1,27 +1,37 @@
 \chapter{Data}
 \section{Questionnaire}
 
-\subsection{ABC-Q Responses}
-  \begin{table}
-  \end{table}
-
 \subsection{Weekly Questionnaires}
   In the weekly questionnaires, when we asked for general feedback,
   we got a lot of feature requests instead.
 
+  Existing Functionality Improvements:
   \begin{enumerate}
-  
+  \item Allow changes in visibilty for a topic, after creation.
+  \item More flexible ways to arrange topics.
+  \item Clarification on how to use icons.
+  \item Make it easier to add people to a group.
+  \item Make it possible to separate actions performed by oneself
+  and those by others.
   \end{enumerate}
 
-\subsection{ABC-Q Responses}
-  \begin{table}
-  \end{table}
+  Functions emulating other communications applications:
+  \begin{enumerate}
+  \item Enable picture sharing.
+  \item Enable video sharing.
+  \item Enable emoticon sharing.
+  \item Make it possible for anyone to see contents from a website.
+  \item Allow notifications to be sent to other users for some urgent actions.
+  \item Allow scheduling appointments with other people,
+  in the context of a topic.
+  \end{enumerate}
+
+\includepdf[fitpaper,pages={-}]{ABCQdata.pdf}
 
 \section{Database}
 \label{sec:appb_data}
-\vspace*{-3in}
     \renewcommand{\arraystretch}{1.2}
-    \begin{table}
+    \begin{table}[H]
     \centering
     \begin{tabular}{  l  l  l }
     \hline
@@ -63,8 +73,55 @@
     \label{fig:api_table}
     \end{table}
 
-\section{App Analytics}
+\subsection{Summary Statistics from Database}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{ l  l  l }
+    Archived & TRUE & 13 \\
+     & FALSE & 57 \\
+    \hline
+    Type & plant & 38 \\
+    & ham & 13 \\
+    & bird & 19 \\
+    \hline
+    Everyone & TRUE & 27 \\
+    & FALSE & 43 \\
+    Only Self& & 13 \\
+    \end{tabular}
+    \caption[Topic Features]{
+    By the end of the study, some topics were archived.
+    A majority of the topics were plant topics, the default,
+    but the split of the remainder between hamsters and birds was pretty even.
+    A minority of topics were shared with everyone,
+    and a minority of topics were shared with nobody.}
+    \label{fig:api_table}
+    \end{table}
 
+    \renewcommand{\arraystretch}{1.2}
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{ l  l  l }
+    Topics per Week & 1 & 43 \\
+    &2 & 17 \\
+    &3 & 10 \\
+    \hline
+    Topics per Group & 1674 &14 \\
+    &1847 & 9\\
+    &2927 & 3\\
+    &3452 & 1\\
+    &3792 & 17\\
+    &5397&9\\
+    &8594&14
+    \end{tabular}
+    \caption[Topic Distribution by Week and Group]{
+    The topics were created mostly in the first week,
+    with decreasing creation in later weeks.
+    Number of topics created by different groups varied.}
+    \label{fig:api_table}
+    \end{table}
+
+\section{App Analytics}
 
 \clearpage
 \newpage
