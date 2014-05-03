@@ -45,8 +45,70 @@
   Other research has generally been observational, for instance Brubaker's study
   in 2011 of usage of existing technologies. \cite{brubaker11}
 
-\section{TBD}
-Import all the proposal materials!
+\section{Original Application Design}
+On the home screen, the user sees two tabs,
+which direct them to each of the two functions of the application.
+(Figure \ref{fig:homescreen})
+
+% Homescreen Figure
+\begin{figure}
+\caption{\textbf{Application Homescreen} --
+The homescreen has two tabs, one for status updates and one for stories.
+The status page shown currently shows the user's own status,
+but can be expanded to have many users' current status.
+The story page shown has a list of stories written by the user. There are photographs
+when they are available, otherwise a small candle icon stands in.
+}
+\centering
+\includegraphics[width=0.75\textwidth]{homescreen.png}
+\label{fig:homescreen}
+\end{figure}
+
+The first function is to aid in communication management.
+The application supports efficient input of the user's current availability
+and preferred method of
+contact, if any, and broadcasts it to any subscribers.
+The current design changes an avatar that represents availability and mood.
+(Figure \ref{fig:update})
+
+% Update Figure
+\begin{figure}
+\caption{\textbf{Status Update Window} --
+The status update window lets the user toggle between three moods
+and three availability states.
+Three representative combinations are shown, but any is possible.
+}
+\centering
+\includegraphics[width=0.90\textwidth]{update.png}
+\label{fig:update}
+\end{figure}
+
+Availability is indicated pictorially by a door that can be opened and closed;
+mood is indicated pictorially by a smiley face whose expression changes.
+The preferred method of contact will be included in the message that
+accompanies a status.
+
+The second function is to share stories and affect.
+The application allows the user to input pictures and/or text and
+choose who the recipients are.
+A technology to support these interactions would consist of a mobile
+application and a supporting server. 
+
+In the initial prototype, the focus is on giving users space to write out
+their story.
+The mobile interface is largely an open space for writing,
+as Figure \ref{fig:compose} shows.
+
+% Compose Figure
+\begin{figure}
+\caption{\textbf{Story Compose Window} --
+The story sharing window lets the user title their story,
+write their story,
+and optionally add a photo.}
+\centering
+\includegraphics[width=0.95\textwidth]{compose.png}
+\label{fig:compose}
+\end{figure}
 
 \section{Maturation into InMind}
   However, we soon ran into a problem.
@@ -56,11 +118,10 @@ Import all the proposal materials!
   \begin{enumerate}
   \item Death is often a stunning, overwhelming catastrophe,
   and bereaved individuals cannot be burdened with learning how to use a new technology.
-  Many recently bereaved individuals already find it difficult to do things they normally can. \cite{??}
+  Many recently bereaved individuals already find it difficult to do things they normally can. \cite{parkes13}
   \item For the deaths that are more forseeable, such as due to illness,
   there is often a long period of handling the dire situation,
   in which many of the same needs exist.
-  In fact, mourning can sometimes begin before the death. \cite{??}
   \end{enumerate}
 
 \clearpage
